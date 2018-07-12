@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Test\CrudBundle\Entity\Visites" table="visites">
+    <indexes>
+      <index name="id_envoyeur" columns="id_envoyeur"/>
+      <index name="id_receveur" columns="id_receveur"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="date" type="datetime" column="date" nullable="false"/>
+    <many-to-one field="idReceveur" target-entity="Membres" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_receveur" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEnvoyeur" target-entity="Membres" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_envoyeur" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,17 @@
+test_crud:
+    resource: "@TestCrudBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ms_membres:
+    resource: "@MSMembresBundle/Resources/config/routing.php"
+    prefix:   /ms
+
+acme_bundle_membres:
+    resource: "@AcmeBundleMembresBundle/Controller/"
+    type:     annotation
+    prefix:   /acme
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

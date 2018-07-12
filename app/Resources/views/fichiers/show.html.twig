@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fichier</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Dateevent</th>
+                <td>{% if fichier.dateevent %}{{ fichier.dateevent|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ fichier.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fichiers_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('fichiers_edit', { 'id': fichier.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

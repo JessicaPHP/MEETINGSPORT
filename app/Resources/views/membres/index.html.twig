@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Membres list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Birthday</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Idsport</th>
+                <th>Niveau</th>
+                <th>Sexe</th>
+                <th>Abonnementnewsletter</th>
+                <th>Dateinscription</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody> {% for user in users %}
+{{user.nom}}
+        {% endfor %}
+        {% for membre in membres %}
+            <tr>
+                <td><a href="{{ path('membres_show', { 'id': membre.id }) }}">{{ membre.nom }}</a></td>
+                <td>{{ membre.prenom }}</td>
+                <td>{{ membre.pseudo }}</td>
+                <td>{{ membre.email }}</td>
+                <td>{{ membre.password }}</td>
+                <td>{% if membre.birthday %}{{ membre.birthday|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ membre.adresse }}</td>
+                <td>{{ membre.codepostal }}</td>
+                <td>{{ membre.ville }}</td>
+                <td>{{ membre.idsport }}</td>
+                <td>{{ membre.niveau }}</td>
+                <td>{{ membre.sexe }}</td>
+                <td>{% if membre.abonnementnewsletter %}Yes{% else %}No{% endif %}</td>
+                <td>{% if membre.dateinscription %}{{ membre.dateinscription|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ membre.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('membres_show', { 'id': membre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('membres_edit', { 'id': membre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('membres_new') }}">Create a new membre</a>
+        </li>
+    </ul>
+{% endblock %}

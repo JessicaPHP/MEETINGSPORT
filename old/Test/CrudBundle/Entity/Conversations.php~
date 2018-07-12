@@ -1,0 +1,43 @@
+<?php
+
+namespace Test\CrudBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Conversations
+ *
+ * @ORM\Table(name="conversations", indexes={@ORM\Index(name="id_sport", columns={"idSport"})})
+ * @ORM\Entity
+ */
+class Conversations
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateEvent", type="datetime", nullable=false)
+     */
+    private $dateevent;
+
+    /**
+     * @var \Sports
+     *
+     * @ORM\ManyToOne(targetEntity="Sports")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idSport", referencedColumnName="id")
+     * })
+     */
+    private $idsport;
+
+
+}
+

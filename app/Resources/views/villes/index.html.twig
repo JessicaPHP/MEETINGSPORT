@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Villes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Villedepartement</th>
+                <th>Villeslug</th>
+                <th>Villenom</th>
+                <th>Villenomsimple</th>
+                <th>Villenomreel</th>
+                <th>Villenomsoundex</th>
+                <th>Villenommetaphone</th>
+                <th>Villecodepostal</th>
+                <th>Villecommune</th>
+                <th>Villecodecommune</th>
+                <th>Villearrondissement</th>
+                <th>Villecanton</th>
+                <th>Villeamdi</th>
+                <th>Villepopulation2010</th>
+                <th>Villepopulation1999</th>
+                <th>Villepopulation2012</th>
+                <th>Villedensite2010</th>
+                <th>Villesurface</th>
+                <th>Villelongitudedeg</th>
+                <th>Villelatitudedeg</th>
+                <th>Villelongitudegrd</th>
+                <th>Villelatitudegrd</th>
+                <th>Villelongitudedms</th>
+                <th>Villelatitudedms</th>
+                <th>Villezmin</th>
+                <th>Villezmax</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ville in villes %}
+            <tr>
+                <td><a href="{{ path('villes_show', { 'id': ville.id }) }}">{{ ville.villedepartement }}</a></td>
+                <td>{{ ville.villeslug }}</td>
+                <td>{{ ville.villenom }}</td>
+                <td>{{ ville.villenomsimple }}</td>
+                <td>{{ ville.villenomreel }}</td>
+                <td>{{ ville.villenomsoundex }}</td>
+                <td>{{ ville.villenommetaphone }}</td>
+                <td>{{ ville.villecodepostal }}</td>
+                <td>{{ ville.villecommune }}</td>
+                <td>{{ ville.villecodecommune }}</td>
+                <td>{{ ville.villearrondissement }}</td>
+                <td>{{ ville.villecanton }}</td>
+                <td>{{ ville.villeamdi }}</td>
+                <td>{{ ville.villepopulation2010 }}</td>
+                <td>{{ ville.villepopulation1999 }}</td>
+                <td>{{ ville.villepopulation2012 }}</td>
+                <td>{{ ville.villedensite2010 }}</td>
+                <td>{{ ville.villesurface }}</td>
+                <td>{{ ville.villelongitudedeg }}</td>
+                <td>{{ ville.villelatitudedeg }}</td>
+                <td>{{ ville.villelongitudegrd }}</td>
+                <td>{{ ville.villelatitudegrd }}</td>
+                <td>{{ ville.villelongitudedms }}</td>
+                <td>{{ ville.villelatitudedms }}</td>
+                <td>{{ ville.villezmin }}</td>
+                <td>{{ ville.villezmax }}</td>
+                <td>{{ ville.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villes_show', { 'id': ville.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villes_edit', { 'id': ville.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villes_new') }}">Create a new ville</a>
+        </li>
+    </ul>
+{% endblock %}

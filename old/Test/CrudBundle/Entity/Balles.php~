@@ -1,0 +1,53 @@
+<?php
+
+namespace Test\CrudBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Balles
+ *
+ * @ORM\Table(name="balles", indexes={@ORM\Index(name="id_envoyeur", columns={"idEnvoyeur"}), @ORM\Index(name="id_receveur", columns={"idReceveur"})})
+ * @ORM\Entity
+ */
+class Balles
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var \Membres
+     *
+     * @ORM\ManyToOne(targetEntity="Membres")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idReceveur", referencedColumnName="id")
+     * })
+     */
+    private $idreceveur;
+
+    /**
+     * @var \Membres
+     *
+     * @ORM\ManyToOne(targetEntity="Membres")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnvoyeur", referencedColumnName="id")
+     * })
+     */
+    private $idenvoyeur;
+
+
+}
+

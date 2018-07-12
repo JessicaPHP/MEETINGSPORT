@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fichiers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dateevent</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fichier in fichiers %}
+            <tr>
+                <td><a href="{{ path('fichiers_show', { 'id': fichier.id }) }}">{{ fichier.dateevent }}</a></td>
+                <td>{{ fichier.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fichiers_show', { 'id': fichier.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fichiers_edit', { 'id': fichier.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fichiers_new') }}">Create a new fichier</a>
+        </li>
+    </ul>
+{% endblock %}

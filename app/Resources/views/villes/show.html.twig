@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ville</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Villedepartement</th>
+                <td>{{ ville.villedepartement }}</td>
+            </tr>
+            <tr>
+                <th>Villeslug</th>
+                <td>{{ ville.villeslug }}</td>
+            </tr>
+            <tr>
+                <th>Villenom</th>
+                <td>{{ ville.villenom }}</td>
+            </tr>
+            <tr>
+                <th>Villenomsimple</th>
+                <td>{{ ville.villenomsimple }}</td>
+            </tr>
+            <tr>
+                <th>Villenomreel</th>
+                <td>{{ ville.villenomreel }}</td>
+            </tr>
+            <tr>
+                <th>Villenomsoundex</th>
+                <td>{{ ville.villenomsoundex }}</td>
+            </tr>
+            <tr>
+                <th>Villenommetaphone</th>
+                <td>{{ ville.villenommetaphone }}</td>
+            </tr>
+            <tr>
+                <th>Villecodepostal</th>
+                <td>{{ ville.villecodepostal }}</td>
+            </tr>
+            <tr>
+                <th>Villecommune</th>
+                <td>{{ ville.villecommune }}</td>
+            </tr>
+            <tr>
+                <th>Villecodecommune</th>
+                <td>{{ ville.villecodecommune }}</td>
+            </tr>
+            <tr>
+                <th>Villearrondissement</th>
+                <td>{{ ville.villearrondissement }}</td>
+            </tr>
+            <tr>
+                <th>Villecanton</th>
+                <td>{{ ville.villecanton }}</td>
+            </tr>
+            <tr>
+                <th>Villeamdi</th>
+                <td>{{ ville.villeamdi }}</td>
+            </tr>
+            <tr>
+                <th>Villepopulation2010</th>
+                <td>{{ ville.villepopulation2010 }}</td>
+            </tr>
+            <tr>
+                <th>Villepopulation1999</th>
+                <td>{{ ville.villepopulation1999 }}</td>
+            </tr>
+            <tr>
+                <th>Villepopulation2012</th>
+                <td>{{ ville.villepopulation2012 }}</td>
+            </tr>
+            <tr>
+                <th>Villedensite2010</th>
+                <td>{{ ville.villedensite2010 }}</td>
+            </tr>
+            <tr>
+                <th>Villesurface</th>
+                <td>{{ ville.villesurface }}</td>
+            </tr>
+            <tr>
+                <th>Villelongitudedeg</th>
+                <td>{{ ville.villelongitudedeg }}</td>
+            </tr>
+            <tr>
+                <th>Villelatitudedeg</th>
+                <td>{{ ville.villelatitudedeg }}</td>
+            </tr>
+            <tr>
+                <th>Villelongitudegrd</th>
+                <td>{{ ville.villelongitudegrd }}</td>
+            </tr>
+            <tr>
+                <th>Villelatitudegrd</th>
+                <td>{{ ville.villelatitudegrd }}</td>
+            </tr>
+            <tr>
+                <th>Villelongitudedms</th>
+                <td>{{ ville.villelongitudedms }}</td>
+            </tr>
+            <tr>
+                <th>Villelatitudedms</th>
+                <td>{{ ville.villelatitudedms }}</td>
+            </tr>
+            <tr>
+                <th>Villezmin</th>
+                <td>{{ ville.villezmin }}</td>
+            </tr>
+            <tr>
+                <th>Villezmax</th>
+                <td>{{ ville.villezmax }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ ville.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('villes_edit', { 'id': ville.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
